@@ -1,0 +1,88 @@
+.txt {
+    text-align: center;
+    font-weight: bold;
+}
+.ulback{
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+.ulback li{
+    
+    list-style: none;
+    font-size: 16px;
+}
+.Backpic{
+    padding: 20px;
+    border-radius: 30px;
+    max-width: 1200px;
+    width: 100%;
+    margin: auto;
+    background: rgba(174, 174, 174, 0.5);
+    
+}
+.subbackpic p{
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 30px;
+
+}
+.subbackpic li{
+    list-style: none;
+    
+    font-size: 16px;
+    
+   
+    
+    
+}
+.subbackpic{
+    margin-top: 75px;
+    border-radius: 60px;
+    
+}
+li svg{
+    width: 75px;
+    height: 75px;
+}
+.service {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+.service li{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+}
+#origin{
+    background:#213638 ;
+    padding: 10px 25px;
+    color: #ffff;
+    border-radius: 18px;
+    border: 0;
+    outline: 0;
+}
+#depart{
+    background:#213638 ;
+    padding: 10px 25px;
+    color: #ffff;
+    border-radius: 18px;
+    border: 0;
+    outline: 0;
+}
+#personne{
+    background:#213638 ;
+    padding: 10px 25px;
+    color: #ffff;
+    border-radius: 18px;
+    border: 0;
+    outline: 0;
+    width: 200px;
+}

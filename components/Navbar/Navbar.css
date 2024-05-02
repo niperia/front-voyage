@@ -1,0 +1,34 @@
+nav{
+    width: 100%;
+    background: transparent ;
+    padding: 4px 0 ;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 10;
+}
+nav ul li{
+    display: inline-block;
+    list-style: none;
+    margin: 5px 20px;
+    font-size: 16px;
+}
+.logo{
+    width: 50px;
+    margin-left: 20px;
+}
+.container{
+    padding-left: 10%;
+    padding-right: 10%;
+}
+.btn{
+    background:#213638 ;
+    padding: 10px 25px;
+    color: #ffff;
+    border-radius: 18px;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+}
