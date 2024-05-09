@@ -14,8 +14,12 @@ export default function Navbar({ logged }) {
     <nav className="container">
       <img alt="" className="logo" />
       <ul>
-        <li>Acceuil</li>
-        <li>Gerer la reservation</li>
+        <li>
+          <Link href="/">Acceuil</Link>
+        </li>
+        <li>
+          <Link href="/reserver">Gerer la reservation</Link>
+        </li>
         {logged ? (
           <button className="btn" onClick={disconnect}>
             Se deconnecter

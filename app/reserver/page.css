@@ -1,0 +1,32 @@
+.reserve-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #cfe7e5;
+  padding: 20px;
+  border-radius: 5px;
+}
+.totalhours {
+  width: 600px;
+}
+.ville {
+  width: 150px;
+  font-weight: bold;
+}
+.time {
+  width: 100px;
+}
+.btn {
+  background: #213638;
+  padding: 10px 25px;
+  color: #ffff;
+  border-radius: 18px;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+}
+.price {
+  width: 70px;
+  font-weight: bold;
+  color: rgb(14, 112, 191);
+}

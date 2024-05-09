@@ -20,9 +20,15 @@ const App = () => {
   const [ville, setVille] = useState();
   const [datedepart, setDatedepart] = useState();
   const router = useRouter();
-
+  const [datearrive, setDatearrive] = useState();
   const handleCountryChange = (event) => {
     setVille(event.target.value);
+  };
+  const handledatearrivechange = (event) => {
+    setDatearrive(event.target.value);
+  };
+  const handledatedepartchange = (event) => {
+    setDatedepart(event.target.value);
   };
 
   function getvoyage() {
@@ -30,12 +36,13 @@ const App = () => {
     if (ville) {
       url += "ville=" + ville + "&";
     }
-    // if (Date_debut) {
-    //   url += "Date_debut=" + date_debut + "&";
-    // }
-    // if (Date_fin) {
-    //   url += "Date_fin=" + date_fin + "&";
-    // }
+    if (datedepart) {
+      url += "Date_debut=" + datedepart.replaceAll("-", "/") + "&";
+    }
+
+    if (datearrive) {
+      url += "Date_fin=" + datearrive.replaceAll("-", "/") + "&";
+    }
     fetch(url)
       .then((response) => response.json())
       .then((data) => setVoyagedata(data));
@@ -43,9 +50,8 @@ const App = () => {
 
   useEffect(() => {
     const usertoken = localStorage.getItem("token");
-    if (!usertoken) {
-      router.push("/login");
-    } else {
+    if (usertoken) {
+      // router.push("/login");
       setIslogged(true);
     }
   });
@@ -56,6 +62,8 @@ const App = () => {
       <Backpic
         getvoyage={getvoyage}
         handleCountryChange={handleCountryChange}
+        handledatedepartchange={handledatedepartchange}
+        handledatearrivechange={handledatearrivechange}
       />
 
       <div className="list-reserve">
