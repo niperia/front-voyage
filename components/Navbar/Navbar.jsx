@@ -1,6 +1,6 @@
 import React from "react";
 import "./Navbar.css";
-// import logo from '../../assets/Travel-Icon-PNG-HD.png'
+
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
@@ -11,8 +11,8 @@ export default function Navbar({ logged }) {
     router.push("/login");
   }
   return (
-    <nav className="container">
-      <img alt="" className="logo" />
+    <nav>
+      <img width="150px" src="/saffff.png" className="logo" />
       <ul>
         <li>
           <Link href="/">Acceuil</Link>

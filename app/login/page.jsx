@@ -37,6 +37,7 @@ export default function page() {
   }
   return (
     <div className="login">
+      <h1>Welcome To Safaryat</h1>
       <div className="email">
         <input
           type="email"

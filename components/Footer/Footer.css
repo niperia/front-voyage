@@ -1,0 +1,21 @@
+footer ul {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  padding: 30px;
+}
+.footer-img img {
+  width: 100px;
+  margin: 10px 30px;
+  display: inline-block;
+}
+.footer-img {
+  text-align: center;
+}
+footer {
+  border-radius: 5px 5px 0px 0px;
+  width: 100%;
+  margin: auto;
+  max-width: 800px;
+  background: rgba(174, 174, 174, 0.5);
+}

@@ -1,8 +1,10 @@
 "use client";
 import React from "react";
+import Footer from "@/components/Footer/Footer";
 import Navbar from "@/components/Navbar/Navbar";
 import Backpic from "@/components/Backpic/Backpic";
 import ReserveCard from "@/components/ReserveCard";
+
 import {
   Card,
   CardDescription,
@@ -101,14 +103,53 @@ const App = () => {
           </li>
         </ul>
       </div>
-      <Card>
-        <CardHeader>
-          <div>
-            <CardTitle>Marrakech-Agadir</CardTitle>
-            <CardDescription>very good</CardDescription>
+      <div className="All-cards">
+        {" "}
+        <div class="card">
+          <img src="./Ouarzazate.jpg"></img>
+          <div class="card-content">
+            <h3 class="card-title">
+              Les 8 choses incontournables à faire à Fès
+            </h3>
+            <p class="card-text">
+              Fès est la ville culturelle et spirituelle du Maroc qui abrite la
+              plus ancienne et la plus grande médina d'Afrique du Nord, classée
+              au patrimoine mondial de l’UNESCO. Avant tout, la ville était la
+              capitale du Maroc et est encore largement considérée comme la
+              capitale spirituelle du pays.{" "}
+            </p>
           </div>
-        </CardHeader>
-      </Card>
+        </div>
+        <div class="card">
+          <img src="./Marrakech.jpg"></img>
+          <div class="card-content">
+            <h3 class="card-title">
+              4 bonnes raisons pour visiter la Médina de Marrakech
+            </h3>
+            <p class="card-text">
+              La Médina de Marrakech est le cœur historique de la ville ocre,
+              inscrite sur la liste du patrimoine mondial de l'UNESCO. La Médina
+              est l'un des lieux incontournables de la ville qu'il ne faut
+              surtout pas rater.{" "}
+            </p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="./Fes-1.jpg"></img>
+          <div class="card-content">
+            <h3 class="card-title">
+              Ouarzazate, découvrez la porte du désert marocain
+            </h3>
+            <p class="card-text">
+              Ouarzazate et les oasis du sud Ouarzazate est une destination
+              authentique regorgeant de mille et une merveilles à couper le
+              souffle. Elle offre des vues spectaculaires combinant déserts et
+              vallées verdoyantes.{" "}
+            </p>
+          </div>
+        </div>
+      </div>
+      <Footer />
     </div>
   );
 };
