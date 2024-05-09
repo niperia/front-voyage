@@ -1,10 +1,17 @@
+import useSWR from 'swr'
 import styles from '@/app/ui/dashboard/users/users.module.css'
 import React from 'react'
 import Search from '@/app/ui/dashboard/search/search'
 import Link from 'next/link'
 import Image from 'next/image'
 
+
 const UsersPage = () => {
+    const { data: users, error } = useSWR('http://localhost:8080/api/users', fetch);
+
+    if (error) return <div>Error loading users</div>;
+    if (!users) return <div>Loading...</div>;
+
     return (
     <div className={styles.container}>
     <div className={styles.top}>
@@ -24,15 +31,19 @@ const UsersPage = () => {
         </tr>
         </thead>
         <tbody>
-            <tr>
+            {users.map (user => ( 
+            <tr key= {user.id}>
                 <td>
                     <div className={styles.user}>
                         <Image  src="/avatar.png" alt="" 
                         width={40} height={40}
                         className={styles.userImage} />
-                        User1
+                        {user.name}
                     </div>
                 </td>
+                <td>{user.createdAt}</td> 
+                <td>{user.email}</td> 
+                <td>{user.role}</td>
                 <td>
                     <Link href="/">
                         <button 
@@ -41,6 +52,7 @@ const UsersPage = () => {
                     <button className={`${styles.button} ${styles.delete}`}>Delete</button>
                 </td>
             </tr>
+            ))}
         </tbody>
     </table>
     </div>
