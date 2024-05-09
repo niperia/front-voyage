@@ -4,7 +4,7 @@
 
   @layer base {
     :root {
-      --background: rgb(240, 237, 237);
+      --background:white ;
       --foreground: 222.2 84% 4.9%;
       --text: black;
       --bgSoft: rgb(217, 205, 205);
