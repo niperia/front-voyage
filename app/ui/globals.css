@@ -4,8 +4,13 @@
 
   @layer base {
     :root {
-      --background: 0 0% 100%;
+      --background: rgb(240, 237, 237);
       --foreground: 222.2 84% 4.9%;
+      --text: black;
+      --bgSoft: rgb(217, 205, 205);
+      --textSoft: rgb(95, 91, 91);
+
+
 
       --card: 0 0% 100%;
       --card-foreground: 222.2 84% 4.9%;
@@ -69,8 +74,18 @@
   @layer base {
     * {
       @apply border-border;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
     body {
       @apply bg-background text-foreground;
+      background-color: var(--background);
+      color: var(--text);
+
+    }
+    a{
+      color: inherit;
+      text-decoration: none;
     }
   }

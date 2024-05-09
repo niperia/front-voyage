@@ -1,6 +1,6 @@
 "use client"
 import { Inter } from "next/font/google";
-import "./globals.css";
+import "./ui/globals.css";
 import { useState } from 'react'; 
 import React from "react";
 export const UserContext = React.createContext(null); 
