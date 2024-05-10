@@ -45,6 +45,7 @@
     color: white;
     border: none;
     cursor: pointer;
+    margin: 5px;
 }
 .modify{
     background-color: green;
