@@ -9,7 +9,7 @@ export default function reservebutton({ voyage_id }) {
       alert("Vous avez besoin de se connecter ");
       return;
     }
-    fetch("http://localhost:8080/api/reservation", {
+    fetch("http://localhost:8081/api/reservation", {
       method: "post",
       body: JSON.stringify({ User: user_id, voyage: voyage_id }),
       headers: {

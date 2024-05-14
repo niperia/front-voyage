@@ -1,0 +1,38 @@
+.container{
+    background-color: rgba(174, 174, 174, 0.5);
+    padding: 10px 20px;
+    border-radius: 10px;
+    display: flex;
+    gap: 20px;
+    cursor:pointer;
+    width: 100%;
+    margin: 10px 0px;
+    
+}
+
+.container:hover{
+    background-color: rgb(122, 117, 113);
+}
+.title{
+    margin-bottom: 20px;
+    font-weight: bold;
+    color:var(--textSoft);
+}
+.table{
+    width: 100%;
+}
+.table{
+    padding: 10px;
+}
+.status{
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 14px;
+    color: white;
+}
+.online{
+    background-color: green;
+}
+.offline{
+    background-color: rgb(211, 25, 25);
+}

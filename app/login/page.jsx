@@ -17,7 +17,7 @@ export default function page() {
       email: email,
       password: password,
     };
-    fetch("http://localhost:8080/api/auth/authenticate", {
+    fetch("http://localhost:8081/api/auth/authenticate", {
       method: "post",
       body: JSON.stringify(data),
       headers: {

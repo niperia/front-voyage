@@ -12,7 +12,7 @@ export default function page() {
     const form = e.target;
     const formData = new FormData(form);
 
-    fetch("http://localhost:8080/api/auth/register", {
+    fetch("http://localhost:8081/api/auth/register", {
       method: "post",
       body: formData,
     })
