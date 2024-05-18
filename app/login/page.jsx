@@ -33,6 +33,25 @@ export default function page() {
         }
       });
 
+      //Admin authenti
+
+      fetch("http://localhost:8081/api/users/mycompte",{
+  method: "post",
+  body: JSON.stringify(data),
+  headers: {
+    "Content-Type": "application/json",
+  },
+})
+  .then((response) => response.json())
+  .then((data) => {
+    if (data.token) {
+      localStorage.setItem("role", data.role);
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("user_id", data.user_id);
+      router.push("/");
+    }
+  });
+      
     const usertoken = localStorage.getItem("token");
   }
   return (

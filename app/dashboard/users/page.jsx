@@ -1,5 +1,5 @@
 "use client"
-import useSWR from 'swr'
+
 import styles from '@/app/ui/dashboard/users/users.module.css'
 import React from 'react'
 import Search from '@/app/ui/dashboard/search/search'
@@ -18,6 +18,7 @@ const UsersPage = () => {
 
     useEffect(() => {
         const fetchData = async () => {
+            
             try {
                 const response = await fetch('http://localhost:8081/api/users', {
                     headers: {
@@ -61,11 +62,11 @@ const UsersPage = () => {
     <table className={styles.table}>
         <thead>
         <tr>
-            <td>Name</td>
-            <td>Created at</td>
-            <td>Email</td>
-            <td>Role</td>
-            <td>Action</td>
+            <tr></tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Action</th>
         </tr>
         </thead>
         <tbody>
@@ -79,7 +80,8 @@ const UsersPage = () => {
                         {user.name}
                     </div>
                 </td>
-                <td>{user.datecrt}</td> 
+                
+                <td>{user.first_name}</td> 
                 <td>{user.email}</td> 
                 <td>{user.role}</td>
                 <td>
