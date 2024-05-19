@@ -7,16 +7,16 @@ import Search from "@/app/ui/dashboard/search/search";
 import Link from "next/link";
 import Image from "next/image";
 import Pagination from "@/app/ui/pagination/pagination";
-import DeleteVoyagebutton from "@/components/DeleteVoyage/DeleteVoyagebutton";
-const VoyagePage = () => {
-  const [voyage, setVoyage] = useState([]);
+import DeleteReservationbutton from "@/components/DeleteReservation/DeleteReservationbutton";
+const ReservationPage = () => {
+  const [reservation, setReservation] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:8080/api/Voyage", {
+        const response = await fetch("http://localhost:8080/api/reservation", {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
@@ -27,7 +27,7 @@ const VoyagePage = () => {
         }
 
         const data = await response.json();
-        setVoyage(data);
+        setReservation(data);
         setLoading(false);
       } catch (error) {
         setError(error);
@@ -50,27 +50,21 @@ const VoyagePage = () => {
     <div className={styles.container}>
       <div className={styles.top}>
         <Search placeholder="Search for a user... " />
-        <Link href="/dashboard/voyage/add">
+        <Link href="/dashboard/reservation/add">
           <button className={styles.addButton}>Add New</button>
         </Link>
       </div>
       <table className={styles.table}>
         <thead>
           <tr>
-            <td>Name</td>
-            <td>Ville</td>
-            <td>Description</td>
-            <td>Transport</td>
-            <td>Nbr_Personne</td>
-            <td>Hebergement</td>
-            <td>activity</td>
-            <td>Prix</td>
-            <td>date_debut</td>
-            <td>date_fin</td>
+            <td>ID</td>
+            <td>Created At</td>
+            <td>User ID</td>
+            <td>Voyage ID</td>
           </tr>
         </thead>
         <tbody>
-          {voyage.map((user) => (
+          {reservation.map((user) => (
             <tr key={user.id}>
               <td>
                 <div className={styles.user}>
@@ -81,28 +75,17 @@ const VoyagePage = () => {
                     height={40}
                     className={styles.userImage}
                   /> */}
-                  {user.name}
+                  {user.id}
                 </div>
               </td>
-              <td>{user.ville}</td>
-              <td>{user.description}</td>
-              <td>{user.transport}</td>
-              <td>{user.nbr_per}</td>
-              <td>{user.hebergement}</td>
-              <td>{user.activity}</td>
-              <td>{user.prix}</td>
-              <td>{user.date_fin}</td>
-              <td>{user.date_debut}</td>
-              <td>
-                <Link href="/">
-                  <button className={`${styles.button} ${styles.modify}`}>
-                    Modify
-                  </button>
-                </Link>
+              <td>{user.date}</td>
+              <td>{user.user}</td>
+              <td>{user.voyage}</td>
 
-                <DeleteVoyagebutton
+              <td>
+                <DeleteReservationbutton
                   className={`${styles.button} ${styles.delete}`}
-                  voyageid={user.id}
+                  reservationid={user.id}
                 />
               </td>
             </tr>
@@ -113,4 +96,4 @@ const VoyagePage = () => {
     </div>
   );
 };
-export default VoyagePage;
+export default ReservationPage;

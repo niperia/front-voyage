@@ -2,20 +2,18 @@
 import React from "react";
 import styles from "@/app/ui/dashboard/users/addUsers/addUsers.module.css";
 
-const AddUsers = () => {
+const AddReservation = () => {
   function handleSubmit(e) {
-    // Prevent the browser from reloading the page
     e.preventDefault();
 
     // Read the form data
     const form = e.target;
     const formData = new FormData(form);
     const usertoken = localStorage.getItem("token");
-    fetch("http://localhost:8080/api/users", {
+    fetch("http://localhost:8080/api/reservation", {
       method: "post",
       body: formData,
       headers: {
-        
         Authorization: "Bearer " + usertoken,
       },
     })
@@ -32,7 +30,7 @@ const AddUsers = () => {
     <div className={styles.container}>
       <form method="post" className={styles.form} onSubmit={handleSubmit}>
         <input type="text" placeholder="Fist Name" name="firstname" required />
-        <input  type="text"  placeholder="Last Name" name="lastname" required />
+        <input type="text" placeholder="Last Name" name="lastname" required />
         <select name="Role" id="cat">
           <option value="general">Choose a Role</option>
           <option value="Admin">Admin</option>
@@ -54,4 +52,4 @@ const AddUsers = () => {
   );
 };
 
-export default AddUsers;
+export default AddReservation;

@@ -1,61 +1,64 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "../../components/Navbar/Navbar";
-import { useState, useContext, useEffect } from "react";
 import "./page.css";
-export default function page() {
-  const [islogged, setIslogged] = useState(false);
-  const [reservedata, setReservedata] = useState("");
-  const [user, setUser] = useState("");
-  const [voyageid, setVoyageid] = useState("");
+
+export default function Page() {
+  const [isLogged, setIsLogged] = useState(false);
+  const [reserveData, setReserveData] = useState([]);
+
   useEffect(() => {
-    const usertoken = localStorage.getItem("token");
-    if (usertoken) {
-      // router.push("/login");
-      setIslogged(true);
+    const userToken = localStorage.getItem("token");
+    if (userToken) {
+      setIsLogged(true);
     }
-    fetch("http://localhost:8080/api/reservation", {
+    fetch("http://localhost:8080/api/reservation/my", {
       headers: {
         "Content-Type": "application/json",
-        Authorization: "Bearer " + usertoken,
+        Authorization: "Bearer " + userToken,
       },
     })
       .then((response) => response.json())
-      //.then((data) => console.log(data))
-      .then((data) => setReservedata(data));
-  });
+      .then((data) => {
+        console.log(data);
+        setReserveData(data);
+      });
+  }, []);
 
   return (
     <div>
-      <Navbar logged={islogged} />
-      <h1>Mes Reservation</h1>
+      <Navbar logged={isLogged} />
+      <h1>Mes Reservations</h1>
+      {reserveData.map((data, index) => (
+        <div className="blyat" key={index}>
+          <div className="reserve-info">
+            <div className="ville">
+              <img src={`http://localhost:8080/api/images/${data.image}`}></img>
+            </div>
 
-      {[reservedata].map((data, index) => {
-        return (
-          <div className="reserve-card">
             <div className="time">
               <p>{data.user}</p>
-              <p>25-05-2024</p>
+              <p>{data.date_fin}</p>
             </div>
             <div className="ville">
-              <p>Agadir</p>
+              <p>{data.ville}</p>
             </div>
             <div className="Nbr personnes">
-              <p>Nbr personnes:40</p>
+              <p>Nbr personnes:{data.nbr_per}</p>
             </div>
             <div className="price">
-              <p>600DH</p>
+              <p>{data.prix}DH</p>
             </div>
 
             <div className="transport">
-              <p>Bus</p>
+              <p>{data.transport}</p>
             </div>
             <div className="description">
-              <p>Agadir tour c joli</p>
+              <p>{data.description}</p>
             </div>
           </div>
-        );
-      })}
+        </div>
+      ))}
     </div>
   );
 }

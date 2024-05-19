@@ -10,7 +10,7 @@ export default function index({ dtvoyage }) {
             <div className="reserve-info">
               <div className="ville">
                 <img
-                  src={`http://localhost:8081/api/images/${data.image}`}
+                  src={`http://localhost:8080/api/images/${data.image}`}
                 ></img>
               </div>
 

@@ -34,7 +34,7 @@ const App = () => {
   };
 
   function getvoyage() {
-    let url = "http://localhost:8081/api/Voyage?";
+    let url = "http://localhost:8080/api/Voyage?";
     if (ville) {
       url += "ville=" + ville + "&";
     }
