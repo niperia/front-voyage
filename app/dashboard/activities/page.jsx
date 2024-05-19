@@ -1,5 +1,4 @@
 "use client";
-
 import { useState, useEffect } from "react";
 import styles from "@/app/ui/dashboard/users/users.module.css";
 import React from "react";
@@ -7,16 +6,16 @@ import Search from "@/app/ui/dashboard/search/search";
 import Link from "next/link";
 import Image from "next/image";
 import Pagination from "@/app/ui/pagination/pagination";
-import DeleteVoyagebutton from "@/components/DeleteVoyage/DeleteVoyagebutton";
-const VoyagePage = () => {
-  const [voyage, setVoyage] = useState([]);
+import DeleteActivity from "@/components/DeleteActivitybutton/DeleteActivity";
+const Activity = () => {
+  const [activity, setActivity] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:8080/api/Voyage", {
+        const response = await fetch("http://localhost:8080/api/activity", {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
@@ -27,7 +26,7 @@ const VoyagePage = () => {
         }
 
         const data = await response.json();
-        setVoyage(data);
+        setActivity(data);
         setLoading(false);
       } catch (error) {
         setError(error);
@@ -50,7 +49,7 @@ const VoyagePage = () => {
     <div className={styles.container}>
       <div className={styles.top}>
         <Search placeholder="Search for a user... " />
-        <Link href="/dashboard/voyage/add">
+        <Link href="/dashboard/activities/add">
           <button className={styles.addButton}>Add New</button>
         </Link>
       </div>
@@ -59,18 +58,11 @@ const VoyagePage = () => {
           <tr>
             <td>Name</td>
             <td>Ville</td>
-            <td>Description</td>
-            <td>Transport</td>
-            <td>Nbr_Personne</td>
-            <td>Hebergement</td>
-            <td>activity</td>
-            <td>Prix</td>
-            <td>date_debut</td>
-            <td>date_fin</td>
+            <td>Type</td>
           </tr>
         </thead>
         <tbody>
-          {voyage.map((user) => (
+          {activity.map((user) => (
             <tr key={user.id}>
               <td>
                 <div className={styles.user}>
@@ -81,28 +73,18 @@ const VoyagePage = () => {
                     height={40}
                     className={styles.userImage}
                   /> */}
-                  {user.name}
+                  {user.nom}
                 </div>
               </td>
               <td>{user.ville}</td>
-              <td>{user.description}</td>
-              <td>{user.transport}</td>
-              <td>{user.nbr_per}</td>
-              <td>{user.hebergement}</td>
-              <td>{user.activity}</td>
-              <td>{user.prix}</td>
-              <td>{user.date_fin}</td>
-              <td>{user.date_debut}</td>
-              <td>
-                <Link href="/">
-                  <button className={`${styles.button} ${styles.modify}`}>
-                    Modify
-                  </button>
-                </Link>
+              <td>{user.type}</td>
 
-                <DeleteVoyagebutton
+              <td>
+              
+
+                <DeleteActivity
                   className={`${styles.button} ${styles.delete}`}
-                  voyageid={user.id}
+                  activityid={user.id}
                 />
               </td>
             </tr>
@@ -113,4 +95,4 @@ const VoyagePage = () => {
     </div>
   );
 };
-export default VoyagePage;
+export default Activity;

@@ -1,7 +1,9 @@
 "use client";
+import { Router } from "lucide-react";
 import "./page.css";
-
+import { useRouter } from "next/navigation";
 export default function page() {
+  const router = useRouter();
   function handleSubmit(e) {
     // Prevent the browser from reloading the page
     e.preventDefault();
@@ -13,12 +15,20 @@ export default function page() {
     fetch("http://localhost:8080/api/auth/register", {
       method: "post",
       body: formData,
-    }).catch((error) => console.log(error));
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.message == "success") {
+          router.push("/login");
+        }
+      })
+      .catch((error) => console.log(error));
   }
 
   return (
     <form method="post" onSubmit={handleSubmit}>
       <div className="register">
+        <h1>Welcome to Safaryat</h1>
         <div className="email">
           <input
             type="email"

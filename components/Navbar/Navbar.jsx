@@ -1,6 +1,6 @@
 import React from "react";
 import "./Navbar.css";
-// import logo from '../../assets/Travel-Icon-PNG-HD.png'
+
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
@@ -11,11 +11,15 @@ export default function Navbar({ logged }) {
     router.push("/login");
   }
   return (
-    <nav className="container">
-      <img alt="" className="logo" />
+    <nav>
+      <img width="150px" src="/saffff.png" className="logo" />
       <ul>
-        <li>Acceuil</li>
-        <li>Gerer la reservation</li>
+        <li>
+          <Link href="/">Acceuil</Link>
+        </li>
+        <li>
+          <Link href="/reserver">Gerer la reservation</Link>
+        </li>
         {logged ? (
           <button className="btn" onClick={disconnect}>
             Se deconnecter

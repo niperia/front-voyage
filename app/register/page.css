@@ -14,8 +14,12 @@
   align-items: center;
   gap: 20px;
   padding: 10px;
-  margin-top: 20px;
-  margin-top: 200px;
+  background-color: rgb(207, 207, 207);
+  max-width: 400px;
+  margin: auto;
+  margin-top: 150px;
+  width: 100%;
+  border-radius: 5px;
 }
 .em {
   padding: 10px;

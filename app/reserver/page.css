@@ -5,7 +5,6 @@
   background-color: #cfe7e5;
   padding: 20px;
   border-radius: 5px;
-  width: 100%;
 }
 .totalhours {
   width: 600px;
@@ -30,13 +29,4 @@
   width: 70px;
   font-weight: bold;
   color: rgb(14, 112, 191);
-}
-.reserve-info {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background-color: #cfe7e5;
-  padding: 20px;
-  border-radius: 5px;
-  width: 100%;
 }

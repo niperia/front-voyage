@@ -28,6 +28,7 @@ export default function page() {
       .then((data) => {
         if (data.token) {
           localStorage.setItem("token", data.token);
+          localStorage.setItem("user_id", data.user_id);
           router.push("/");
         }
       });
@@ -36,6 +37,7 @@ export default function page() {
   }
   return (
     <div className="login">
+      <h1>Welcome To Safaryat</h1>
       <div className="email">
         <input
           type="email"

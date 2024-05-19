@@ -1,9 +1,15 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import "./Backpic.css";
-export default function Backpic({ getvoyage, handleCountryChange }) {
+export default function Backpic({
+  getvoyage,
+  handleCountryChange,
+  handledatearrivechange,
+  handledatedepartchange,
+}) {
   const [records, setRecords] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState("");
+  const [datedepart, setDatedepart] = useState("");
 
   useEffect(() => {
     fetch(
@@ -23,14 +29,14 @@ export default function Backpic({ getvoyage, handleCountryChange }) {
             <select
               name="origine"
               id="origin"
-              value={selectedCountry}
+              // value={selectedCountry}
               onChange={handleCountryChange}
             >
               <option selected hidden>
                 Selectionner depart
               </option>
-              {records.map((city) => (
-                <option key={1} value={city}>
+              {records.map((city, index) => (
+                <option key={index} value={city}>
                   {city}
                 </option>
               ))}
@@ -54,10 +60,20 @@ export default function Backpic({ getvoyage, handleCountryChange }) {
             </select>
           </li> */}
           <li>
-            <input id="depart" type="date" placeholder="Selectionner ville" />
+            <input
+              id="depart"
+              type="date"
+              // value={datedepart}
+              onChange={handledatedepartchange}
+            />
           </li>
           <li>
-            <input id="depart" type="date" placeholder="date d'arrive" />
+            <input
+              id="depart"
+              type="date"
+              placeholder="date d'arrive"
+              onChange={handledatearrivechange}
+            />
           </li>
           {/* <li>
             <input
