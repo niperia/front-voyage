@@ -34,7 +34,7 @@
 .reserve-info {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 30px;
   background-color: #cfe7e5;
   padding: 20px;
   border-radius: 5px;

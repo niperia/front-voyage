@@ -28,9 +28,10 @@ export default function page() {
       .then((data) => {
         if (data.token) {
           localStorage.setItem("token", data.token);
-          localStorage.setItem("user_id", data.user_id);
+          localStorage.setItem("user_id", data.id);
           router.push("/");
         }
+        console.log(data);
       });
 
     const usertoken = localStorage.getItem("token");

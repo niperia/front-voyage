@@ -80,11 +80,7 @@ const Hebergement = () => {
               <td>{user.website}</td>
 
               <td>
-                <Link href="/">
-                  <button className={`${styles.button} ${styles.modify}`}>
-                    Modify
-                  </button>
-                </Link>
+               
 
                 <DeleteHebergement
                   className={`${styles.button} ${styles.delete}`}

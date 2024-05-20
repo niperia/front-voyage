@@ -1,31 +1,51 @@
-.container{
-    background-color:rgb(95, 91, 91) ;
-    padding: 20px;
-    border-radius: 10px;
-    margin-top: 20px;
-    justify-content: space-between;
+.container {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for depth */
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.form{
-    display: flex;
-    flex-wrap: wrap;
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Adds space between form elements */
+  width: 100%;
+  max-width: 600px; /* Limits the form width for better readability */
 }
-.form input, .form textarea, .form select{
-    padding: 30px;
-    background-color: transparent;
-    color: var(--text);
-    border: 2px solid rgb(95, 91, 91);
-    border-radius: 5px;
-    margin-bottom: 30px;
+
+.form input,
+.form textarea,
+.form select {
+  padding: 15px;
+  background-color: #f9f9f9;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  flex: 1 1 45%; /* Ensures elements take up 45% width and grow/shrink as needed */
+  min-width: 200px; /* Ensures elements don't get too narrow */
 }
-.form input, .form select{
-    width: 45%;
+
+.form textarea {
+  flex: 1 1 100%; /* Textarea takes full width */
+  height: 150px; /* Fixed height for textarea */
 }
-.form button{
-    width: 100px;
-    padding: 30px;
-    background-color: teal;
-    color: var(--text);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+
+.form button {
+  width: auto;
+  padding: 15px 30px; /* More balanced padding */
+  background-color: #007bff; /* Consistent primary blue */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  align-self: flex-end; /* Aligns the button to the end of the form */
+  transition: background-color 0.3s ease; /* Smooth transition effect */
+}
+
+.form button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
 }

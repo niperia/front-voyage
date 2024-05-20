@@ -12,7 +12,15 @@ const VoyagePage = () => {
   const [voyage, setVoyage] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  function formatDate(timestamp) {
+    const date = new Date(timestamp);
 
+    const year = date.getFullYear();
+    const month = (date.getMonth() + 1).toString().padStart(2, "0"); 
+    const day = date.getDate().toString().padStart(2, "0");
+
+    return `${year}-${month}-${day}`;
+  }
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -91,17 +99,13 @@ const VoyagePage = () => {
               <td>{user.hebergement}</td>
               <td>{user.activity}</td>
               <td>{user.prix}</td>
-              <td>{user.date_fin}</td>
-              <td>{user.date_debut}</td>
+              <td>{formatDate(user.date_fin)}</td>
+              <td>{formatDate(user.date_debut)}</td>
               <td>
-                <Link href="/">
-                  <button className={`${styles.button} ${styles.modify}`}>
-                    Modify
-                  </button>
-                </Link>
+                
 
                 <DeleteVoyagebutton
-                  className={`${styles.button} ${styles.delete}`}
+                  
                   voyageid={user.id}
                 />
               </td>

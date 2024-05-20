@@ -1,28 +1,33 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import styles from "@/app/ui/dashboard/users/addUsers/addUsers.module.css";
 
 const Addvoyages = () => {
-  function handleSubmit(e) {
-    // Prevent the browser from reloading the page
-    e.preventDefault();
+  const [selectedActivities, setSelectedActivities] = useState([]);
 
-    // Read the form data
+  function handleActivityChange(e) {
+    const options = e.target.options;
+    const selectedValues = [];
+    for (let i = 0; i < options.length; i++) {
+      if (options[i].selected) {
+        selectedValues.push(options[i].value);
+      }
+    }
+    setSelectedActivities(selectedValues);
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
     const form = e.target;
     const formData = new FormData(form);
-    const usertoken = localStorage.getItem("token");
+    formData.set("activity", JSON.stringify(selectedActivities));
 
-    // Convert FormData to JSON
-    const formDataObject = {};
-    formData.forEach((value, key) => {
-      formDataObject[key] = value;
-    });
+    const usertoken = localStorage.getItem("token");
 
     fetch("http://localhost:8080/api/Voyage", {
       method: "POST",
-      body: JSON.stringify(formDataObject),
+      body: formData,
       headers: {
-        "Content-Type": "application/json",
         Authorization: "Bearer " + usertoken,
       },
     })
@@ -38,12 +43,12 @@ const Addvoyages = () => {
   return (
     <div className={styles.container}>
       <form method="post" className={styles.form} onSubmit={handleSubmit}>
-        <input type="text" placeholder="Nom Voyage" name="name" required />
+        <input type="text" placeholder="Nom Voyage" name="Name" required />
         <input type="text" placeholder="Ville" name="ville" required />
         <input
           type="text"
           placeholder="Description"
-          name="description"
+          name="Description"
           required
         />
         <select name="transport" id="cat2">
@@ -53,19 +58,32 @@ const Addvoyages = () => {
           <option value="avion">avion</option>
           <option value="Bateau">Bateau</option>
         </select>
-        <select name="activity" id="cat">
-          <option value="">Choose an activity</option>
-          <option value="cultures">cultures</option>
-          <option value="urbain">urbain</option>
-          <option value="rural">rural</option>
-          <option value="gastronomic">gastronomic</option>
-          <option value="adventure">adventure</option>
-          <option value="santé">santé</option>
-          <option value="sportif">sportif</option>
-          <option value="religieux">religieux</option>
-          <option value="écologique">écologique</option>
-          <option value="balnéaire">balnéaire</option>
-        </select>
+        {/* <select
+          name="activity"
+          id="cat"
+          multiple
+          value={selectedActivities}
+          onChange={handleActivityChange}
+        >
+          <option value="cultures">Cultures</option>
+          <option value="urbain">Urbain</option>
+          <option value="rural">Rural</option>
+          <option value="gastronomic">Gastronomic</option>
+          <option value="adventure">Adventure</option>
+          <option value="santé">Santé</option>
+          <option value="sportif">Sportif</option>
+          <option value="religieux">Religieux</option>
+          <option value="écologique">Écologique</option>
+          <option value="balnéaire">Balnéaire</option>
+        </select> */}
+        <input type="text" placeholder="activ" name="activity" />
+        <input
+          type="text"
+          placeholder="Nombre de personne"
+          name="nbr_per"
+          required
+        />
+
         <input
           type="text"
           placeholder="Exemple:DD-MM-YYYY"

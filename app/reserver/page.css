@@ -30,3 +30,19 @@
   font-weight: bold;
   color: rgb(14, 112, 191);
 }
+.reserve-info2 {
+  display: flex;
+  gap: 50px;
+  margin: 50px;
+  background-color: #cfe7e5;
+  padding: 30px;
+  border-radius: 5px;
+
+  justify-content: center;
+}
+.reserve-text {
+  display: flex;
+  justify-content: center;
+  font-weight: 600;
+  font-size: larger;
+}

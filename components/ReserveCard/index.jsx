@@ -2,6 +2,16 @@ import React from "react";
 import "./index.css";
 import Reservebutton from "@/components/Reservebutton";
 export default function index({ dtvoyage }) {
+  console.log(dtvoyage);
+  function formatDate(timestamp) {
+    const date = new Date(timestamp);
+
+    const year = date.getFullYear();
+    const month = (date.getMonth() + 1).toString().padStart(2, "0"); // Months are zero-based
+    const day = date.getDate().toString().padStart(2, "0");
+
+    return `${year}-${month}-${day}`;
+  }
   return (
     <>
       {dtvoyage.map((data, index) => {
@@ -15,8 +25,8 @@ export default function index({ dtvoyage }) {
               </div>
 
               <div className="time">
-                <p>{data.date_debut}</p>
-                <p>{data.date_fin}</p>
+                <p>{formatDate(data.date_debut)}</p>
+                <p>{formatDate(data.date_fin)}</p>
               </div>
               <div className="ville">
                 <p>{data.ville}</p>

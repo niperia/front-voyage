@@ -1,5 +1,6 @@
 import { Delete } from "lucide-react";
 import React from "react";
+import styles from "@/app/ui/dashboard/users/users.module.css";
 import { useEffect } from "react";
 export default function page({ reservationid }) {
   function deleteuser() {
@@ -11,5 +12,5 @@ export default function page({ reservationid }) {
       },
     });
   }
-  return <button onClick={deleteuser}>Delete</button>;
+  return <button className={`${styles.button} ${styles.delete}`} onClick={deleteuser}>Delete</button>;
 }

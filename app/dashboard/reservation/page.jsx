@@ -12,7 +12,13 @@ const ReservationPage = () => {
   const [reservation, setReservation] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  function formatDate(dateArray) {
+    const [year, month, day] = dateArray;
 
+    return `${year}-${month.toString().padStart(2, "0")}-${day
+      .toString()
+      .padStart(2, "0")}`;
+  }
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -28,6 +34,7 @@ const ReservationPage = () => {
 
         const data = await response.json();
         setReservation(data);
+        
         setLoading(false);
       } catch (error) {
         setError(error);
@@ -50,9 +57,6 @@ const ReservationPage = () => {
     <div className={styles.container}>
       <div className={styles.top}>
         <Search placeholder="Search for a user... " />
-        <Link href="/dashboard/reservation/add">
-          <button className={styles.addButton}>Add New</button>
-        </Link>
       </div>
       <table className={styles.table}>
         <thead>
@@ -78,7 +82,7 @@ const ReservationPage = () => {
                   {user.id}
                 </div>
               </td>
-              <td>{user.date}</td>
+              <td>{formatDate(user.date)}</td>
               <td>{user.user}</td>
               <td>{user.voyage}</td>
 

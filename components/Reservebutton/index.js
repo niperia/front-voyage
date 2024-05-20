@@ -1,10 +1,12 @@
-import { Router } from "lucide-react";
+import { Router, User } from "lucide-react";
 import React from "react";
 
 export default function reservebutton({ voyage_id }) {
   function reserver() {
     const user_id = localStorage.getItem("user_id");
     const usertoken = localStorage.getItem("token");
+    console.log("user_id:", user_id);
+    console.log("user_id:", usertoken);
     if (!usertoken) {
       alert("Vous avez besoin de se connecter ");
       return;
